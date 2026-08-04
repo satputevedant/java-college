@@ -16,8 +16,7 @@ public class PatientFileHandling {
         appendToFile();
         readFile();
 
-        // Uncomment to remove the file after the demonstration.
-        // deleteFile();
+        deleteFile();
     }
 
     private static void createFile() {
