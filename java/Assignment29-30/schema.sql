@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS libraryjava;
+USE libraryjava;
+
+CREATE TABLE IF NOT EXISTS registrations (
+  id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL, phone VARCHAR(30), password_hash VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS web_employees (
+  employee_id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,
+  department VARCHAR(80) NOT NULL, salary DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS students (
+  roll_no INT PRIMARY KEY, name VARCHAR(100) NOT NULL,
+  course VARCHAR(80), marks DECIMAL(5,2)
+);
+CREATE TABLE IF NOT EXISTS products (
+  product_id INT PRIMARY KEY, product_name VARCHAR(100) NOT NULL,
+  quantity INT NOT NULL, price DECIMAL(10,2) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS employees (
+  employee_id INT PRIMARY KEY, name VARCHAR(100) NOT NULL,
+  department VARCHAR(80), salary DECIMAL(10,2)
+);
+CREATE TABLE IF NOT EXISTS users (
+  username VARCHAR(60) PRIMARY KEY, password VARCHAR(255) NOT NULL,
+  role VARCHAR(40) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS books (
+  book_id INT PRIMARY KEY, title VARCHAR(150) NOT NULL,
+  author VARCHAR(100), available BOOLEAN DEFAULT TRUE
+);
+CREATE TABLE IF NOT EXISTS book_issues (
+  issue_id INT AUTO_INCREMENT PRIMARY KEY, book_id INT NOT NULL,
+  student_name VARCHAR(100) NOT NULL, issue_date DATE NOT NULL, return_date DATE
+);
